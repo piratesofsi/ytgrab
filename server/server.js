@@ -21,12 +21,7 @@ app.use(express.json());
 process.on("uncaughtException", (err) => console.log("UNCAUGHT:", err));
 process.on("unhandledRejection", (err) => console.log("UNHANDLED:", err));
 
-
-/*
-================================
-GET VIDEO INFO
-================================
-*/
+// video info
 app.post("/api/info", async (req, res) => {
   try {
 
@@ -51,11 +46,7 @@ app.post("/api/info", async (req, res) => {
 });
 
 
-/*
-================================
-GET AVAILABLE FORMATS
-================================
-*/
+// get available formats 
 app.post("/api/formats", async (req, res) => {
   try {
 
@@ -103,11 +94,7 @@ app.post("/api/formats", async (req, res) => {
 });
 
 
-/*
-================================
-DOWNLOAD VIDEO
-================================
-*/
+// download video 
 app.get("/api/download", async (req, res) => {
 
   const tmpFile = path.join(os.tmpdir(), `yt-${Date.now()}.mp4`);
@@ -166,11 +153,7 @@ app.get("/api/download", async (req, res) => {
 });
 
 
-/*
-================================
-START SERVER
-================================
-*/
+
 app.listen(5000, () => {
   console.log("🚀 Server running on http://localhost:5000");
 });
